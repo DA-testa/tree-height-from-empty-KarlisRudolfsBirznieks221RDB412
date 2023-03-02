@@ -27,7 +27,7 @@ def main():
         print(calculate_height(n, parents))
     elif "F" in user_input:
         filename = str(input())
-        filepath = "test/" + filename
+        filepath = "test/" + str(filename)
         with open(filepath, 'r') as file:
             n = int(file.readline())
             parents = list(map(int, file.readline().split()))
