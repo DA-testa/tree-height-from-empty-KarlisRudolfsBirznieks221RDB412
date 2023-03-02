@@ -25,10 +25,11 @@ def main():
         n = int(input())
         parents = list(map(int, input().split()))
         print(calculate_height(n, parents))
+
     elif "F" in user_input:
         filename = str(input())
-        filepath = "test/" + str(filename)
-        with open(filepath, 'r') as file:
+        filename = "test/" + str(filename)
+        with open(filename, 'r') as file:
             n = int(file.readline())
             parents = list(map(int, file.readline().split()))
         print(calculate_height(n, parents))
@@ -36,3 +37,4 @@ def main():
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
 threading.Thread(target=main).start()
+
