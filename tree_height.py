@@ -1,6 +1,6 @@
 import sys
 import threading
-##import numpy as np
+
 
 def calculate_height(n, parents):
     height = [-1] * n
@@ -37,7 +37,6 @@ def main():
             parents = list(map(int, file.readline().split()))
         print(calculate_height(n, parents))
 
-   ## print(np.array([1, 2, 3]))
 
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
