@@ -1,18 +1,17 @@
 import sys
 import threading
 
-
 def calculate_height(n, parents):
-    height = [-1] * n
+    heights = [-1] * n
 
     def get_height(node):
-        if height[node] != -1:
-            return height[node]
+        if heights[node] != -1:
+            return heights[node]
         if parents[node] == -1:
-            height[node] = 1
+            heights[node] = 1
         else:
-            height[node] = get_height(parents[node]) + 1
-        return height[node]
+            heights[node] = get_height(parents[node]) + 1
+        return heights[node]
 
     max_height = 0
     for i in range(n):
@@ -20,26 +19,20 @@ def calculate_height(n, parents):
 
     return max_height
 
-
 def main():
-    input_str = input().strip()
-
-    if "I" in input_str:
+    user_input = str(input())
+    if "I" in user_input:
         n = int(input())
         parents = list(map(int, input().split()))
         print(calculate_height(n, parents))
-
-    if "F" in input_str:
-        
-        filename = input().strip()
+    elif "F" in user_input:
+        filename = str(input())
         filepath = "test/" + filename
-        
         with open(filepath, 'r') as file:
             n = int(file.readline())
             parents = list(map(int, file.readline().split()))
         print(calculate_height(n, parents))
-
-
+        
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
 threading.Thread(target=main).start()
