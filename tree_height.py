@@ -3,10 +3,11 @@
 import sys
 import threading
 
-def calculate_height(n, parents):
+def compute_height(n, parents):
     heights = [-1] * n
 
     def get_height(node):
+        
         if heights[node] != -1:
             return heights[node]
         if parents[node] == -1:
@@ -26,15 +27,18 @@ def main():
     if "I" in user_input:
         n = int(input())
         parents = list(map(int, input().split()))
-        print(calculate_height(n, parents))
+        print(compute_height(n, parents))
 
     elif "F" in user_input:
         filename = str(input())
+        if "a" in filename:
+            print("Enter a file name without letter 'a'")
+            return
         filename = "test/" + str(filename)
         with open(filename, 'r') as file:
             n = int(file.readline())
             parents = list(map(int, file.readline().split()))
-        print(calculate_height(n, parents))
+        print(compute_height(n, parents))
         
 sys.setrecursionlimit(10**7)
 threading.stack_size(2**27)
