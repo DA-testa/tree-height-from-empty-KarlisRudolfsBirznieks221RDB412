@@ -30,10 +30,8 @@ def main():
         print(calculate_height(n, parents))
 
     if "F" in input_str:
+        
         filename = input().strip()
-        if len(filename) == 1:
-            
-        filename = "0" + filename
         filepath = "test/" + filename
         
         with open(filepath, 'r') as file:
