@@ -1,4 +1,4 @@
-
+#221RDB412 Kārlis Rūdolfs Birznieks
 
 import sys
 import threading
